@@ -9,21 +9,21 @@ Subnet Mask
 Next, you'll take /# (where # is a number from 1-32) and determine your subnet mask. The way you do this is you have as many 1s (from left to right) as the number indicates. In this example we have a /19 subnet, therefore the first 19 digits (left-to-right) are 1s, then convert to decimal for the subnet mask.
 
 Network ID
-To get your network ID, line up your binary IP address and subnet mask, and any column that has a one in it becomes a 1 in your network ID, everything else is a zero. Convert to decimal for the human-readable ip address. The bits you're converting to 1s are known as 'host bits' and are the parts of the address that correlate directly to usable addresses by hosts.
+To get your network ID, line up your binary IP address and binary subnet mask, and any column that has a one in it becomes a 1 in your network ID, everything else is a zero. Convert to decimal for the human-readable ip address. The bits you're converting to 1s are known as 'host bits' and are the parts of the address that correlate directly to usable addresses by hosts.
 
 First Host
 Your first host is the first IP address after the network ID (see the example problem below).
 
-Broadcast
-Your broadcast address is related to your subnet mask. Whatever columns had zero in them in your subnet mask are converted to 1s for your broadcast address. Your broadcast address is going to be in your network block so it will look similar to what is in the example below.
-
 Last Host
 Your last host is the IP address just before the broadcast address. 
 
+Broadcast
+Your broadcast address is related to your subnet mask and network ID. Whatever columns had zero in them in your subnet mask are converted to 1s for your broadcast address. Your broadcast address is going to be in your network block so it will look similar to what is in the example below. Your Broadcast address is your network ID with all the host bits converted to 1s
+
 Example Problem:
 IP 31.203.5.236/19
-00011111.11001011.00000101.11101100 IP		31.203.5.236
-11111111.11111111.11100000.00000000 subnet	255.255.224.0
+00011111.11001011.00000101.11101100 IP		    31.203.5.236
+11111111.11111111.11100000.00000000 subnet	    255.255.224.0
 00011111.11001011.00000000.00000000 network id	31.203.0.0
 00011111.11001011.00000000.00000001 First host	31.203.0.1
 00011111.11001011.00011111.11111110 Last Host	31.203.31.254
@@ -31,10 +31,17 @@ IP 31.203.5.236/19
 
 Example:
 178.205.3.157/17
-10110010.11001101.00000011.00101110 IP		178.205.3.157
-11111111.11111111.10000000.00000000 subnet	255.255.128.0
+10110010.11001101.00000011.00101110 IP		    178.205.3.157
+11111111.11111111.10000000.00000000 subnet	    255.255.128.0
 10110010.11001101.00000000.00000000 network id	178.205.0.0
 10110010.11001101.00000000.00000001 first host	178.205.0.1
 10110010.11001101.01111111.11111110 last host	178.205.127.254
 10110010.11001101.01111111.11111111 broadcast	178.205.127.255
 
+173.32.2.62/27
+10101101.00100000.00000010.00101010 IP          173.32.2.62
+11111111.11111111.11111111.11100000 Subnet      255.255.255.224
+10101101.00100000.00000010.00100000 Network ID  173.32.2.32
+10101101.00100000.00000010.00100001 First Host  173.32.2.33
+10101101.00100000.00000010.00111110 Last Host   173.32.2.62
+10101101.00100000.00000010.00111111 Broadcast   173.32.2.63
