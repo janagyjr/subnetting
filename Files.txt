@@ -1,0 +1,5 @@
+Included Files:
+Files.txt - this file
+Binary Worksheet.xlsx - A worksheet for helping convert binary <-> decimal
+example subnetting problem.txt - A text document explaining the method I used to learn how to subnet
+LICENSE.txt - File describing the license under which the contents of the archive are distributed under.
